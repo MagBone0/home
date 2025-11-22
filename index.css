@@ -1,0 +1,1305 @@
+@charset "utf-8";
+
+/* global : start | تنظیمات کلی صفحه */
+body {
+  overflow-x: hidden;
+  margin: 0;
+  background-color: #ffffff;
+  font-family: "shabnam";
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+@font-face {
+  font-family: "shabnam";
+  src: url("../fonts/Shabnam.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+/* global : end */
+
+/* header : start | استایل هدر و نوار خبر بالا */
+
+header {
+  width: 100%;
+  max-width: 100%;
+  background-color: #ffffff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  box-shadow: rgba(15, 23, 42, 0.04) 0px 10px 30px;
+}
+
+/* نوار خبر بالا */
+#header-news {
+  width: 100%;
+  background: linear-gradient(90deg, #ff3d70, #ff7a3d);
+  color: #ffffff;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  direction: rtl;
+}
+
+.news-inner {
+  width: 100%;
+  max-width: 1350px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.news-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.news-right i {
+  font-size: 16px;
+}
+
+.news-link {
+  font-size: 13px;
+  color: #fff;
+  text-decoration: none;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+  transition: background 0.2s ease;
+}
+
+.news-link:hover {
+  background: rgba(255, 255, 255, 0.28);
+}
+
+/* بخش اصلی هدر */
+#header-min {
+  width: 100%;
+  max-width: 100%;
+  height: 96px;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#header-min > div {
+  height: 100%;
+}
+
+/* کانتینر وسط هدر */
+#header-min {
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+}
+
+#header-min::after {
+  content: "";
+  display: block;
+}
+
+/* لوگو */
+#header-logo {
+  width: 20%;
+  max-width: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 24px;
+  gap: 10px;
+}
+
+.logo-mark {
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  background: radial-gradient(circle at 20% 0%, #ff8da9, #ff2f6c);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 24px;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.logo-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.logo-name span {
+  color: #ff2f6c;
+}
+
+.logo-tagline {
+  font-size: 11px;
+  color: #6b7280;
+}
+.main-logo {
+  width: 100px; /* سایز جدید */
+  height: 100px; /* سایز جدید */
+  border-radius: 14px;
+  object-fit: cover;
+}
+/* استایل متن تقلبی */
+.search-placeholder {
+  position: absolute;
+  right: 50px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ca3af; /* طوسی روشن */
+  font-size: 15px;
+  pointer-events: none;
+  font-family: "shabnam";
+}
+
+/* رنگ برند */
+.search-placeholder .brand {
+  color: #ff2f6c; /* رنگ برند شما */
+  font-weight: 600;
+}
+
+/* وقتی کاربر تایپ می‌کند محو شود */
+.searchTerm:focus ~ .search-placeholder,
+.searchTerm:not(:placeholder-shown) ~ .search-placeholder {
+  opacity: 0;
+}
+
+/* سرچ */
+#header-srh {
+  width: 55%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  padding-top: 6px;
+}
+
+.sb-example-1 .search {
+  width: 100%;
+  position: relative;
+  display: flex;
+  direction: rtl;
+}
+
+.sb-example-1 .searchTerm {
+  width: 100%;
+  border: none;
+  padding: 12px 50px 12px 16px; /* 👈 فضای کافی برای آیکون */
+  border-radius: 10px;
+  outline: none;
+  font-size: 15px;
+  background-color: #f4f5f7;
+}
+
+.sb-example-1 .searchTerm::placeholder {
+  color: #9ca3af;
+}
+
+.sb-example-1 .searchButton {
+  position: absolute;
+  right: 12px; /* 👈 رفت داخل input */
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: none;
+  font-size: 18px;
+  color: #6b7280;
+  cursor: pointer;
+}
+
+.header-tags {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+}
+
+.header-tags button {
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: none;
+  background-color: #f3f4f6;
+  color: #4b5563;
+  font-family: "shabnam";
+  font-size: 11px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.header-tags button:hover {
+  background-color: #ffeff5;
+  color: #be123c;
+}
+
+/* بخش ورود/سبد/آیکون‌ها */
+#login-hearder {
+  width: 25%;
+  max-width: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 0 24px;
+}
+
+.auth-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 12px;
+  background-color: #111827;
+  border-radius: 999px;
+  font-family: "shabnam";
+  font-size: 13px;
+  cursor: pointer;
+  color: #f9fafb;
+  border: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease,
+    background-color 0.2s ease;
+}
+
+.auth-btn .icon {
+  font-size: 16px;
+}
+
+.auth-btn:hover {
+  background-color: #0f172a;
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.4);
+  transform: translateY(-1px);
+}
+
+.header-icon-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  border: 1px solid #e5e7eb;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.2s ease;
+  position: relative;
+}
+
+.header-icon-btn i {
+  font-size: 16px;
+  color: #4b5563;
+}
+
+.header-icon-btn:hover {
+  background-color: #f9fafb;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(15, 23, 42, 0.18);
+}
+
+.header-icon-btn .badge {
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  min-width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  background-color: #ef4444;
+  color: #ffffff;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* header : end */
+
+/* nav : start | منوی اصلی بالای صفحه */
+nav {
+  width: 100%;
+  max-width: 100%;
+  height: 52px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 138px; /* ارتفاع هدر (۴۲+۹۶) */
+  background-color: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 900;
+}
+
+#nav-min {
+  width: 100%;
+  max-width: 1350px;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  direction: rtl;
+  padding: 0 24px;
+}
+
+/* بخش چپ منو (دسته‌بندی‌ها + لینک‌های اصلی) */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-main-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid #e5e7eb;
+  background-color: #f9fafb;
+  font-family: "shabnam";
+  font-size: 13px;
+  cursor: pointer;
+  color: #111827;
+  transition: 0.2s ease;
+}
+
+.nav-main-btn i {
+  font-size: 16px;
+}
+
+.nav-main-btn:hover {
+  background-color: #111827;
+  color: #f9fafb;
+}
+
+/* لینک‌ها */
+.nav-link {
+  font-size: 13px;
+  color: #4b5563;
+  text-decoration: none;
+  padding: 4px 8px;
+  border-radius: 999px;
+  transition: background 0.2s ease, color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-link.highlight {
+  color: #b91c1c;
+  background: #fee2e2;
+}
+
+.nav-link.highlight i {
+  font-size: 14px;
+}
+
+.nav-link:hover {
+  background-color: #f3f4f6;
+  color: #111827;
+}
+
+/* بخش راست منو */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ریسپانسیو هدر + ناوبری برای موبایل */
+@media (max-width: 900px) {
+  /* خود هدر: همیشه یه ردیف بمونه */
+  #header-min {
+    flex-direction: row;
+    height: auto;
+    padding: 8px 10px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  /* لوگو – فقط خود عکس، متن اضافه حذف بشه که جا بگیره */
+  #header-logo {
+    flex: 0 0 auto;
+    width: auto;
+    max-width: none;
+    padding: 0;
+    justify-content: flex-start;
+  }
+
+  .main-logo {
+    width: 52px;
+    height: 52px;
+  }
+
+  /* شعار زیر لوگو تو موبایل حذف بشه */
+  .logo-tagline {
+    display: none;
+  }
+
+  /* سرچ وسط، کل فضای وسط رو بگیره */
+  #header-srh {
+    flex: 1 1 auto;
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .sb-example-1 .searchTerm {
+    font-size: 14px;
+    padding: 10px 40px 10px 10px;
+  }
+
+  .search-placeholder {
+    right: 40px;
+    font-size: 13px;
+  }
+
+  .sb-example-1 .searchButton {
+    right: 10px;
+    font-size: 16px;
+  }
+
+  /* تگ‌های دسته‌بندی زیر سرچ تو موبایل حذف بشن که هدر شلوغ نشه */
+  .header-tags {
+    display: none;
+  }
+
+  /* آیکون‌ها سمت چپ هدر */
+  #login-hearder {
+    flex: 0 0 auto;
+    width: auto;
+    max-width: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 6px;
+    padding: 0;
+  }
+
+  /* دکمه ورود: فقط آیکون، متنش حذف بشه تا جا بشه */
+  .auth-btn span:not(.icon) {
+    display: none;
+  }
+
+  .auth-btn {
+    padding: 8px;
+    border-radius: 50%;
+  }
+
+  /* آیکون‌های سبد / علاقه‌مندی کمی کوچیک‌تر */
+  .header-icon-btn {
+    width: 34px;
+    height: 34px;
+  }
+}
+
+/* خیلی کوچک‌تر از 380px – یه کوچولو فشرده‌ترش کنیم */
+@media (max-width: 380px) {
+  #header-min {
+    padding: 6px 6px;
+    gap: 6px;
+  }
+
+  .main-logo {
+    width: 46px;
+    height: 46px;
+  }
+
+  .sb-example-1 .searchTerm {
+    font-size: 13px;
+  }
+
+  .search-placeholder {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 600px) {
+  .news-inner {
+    font-size: 12px;
+  }
+
+  .logo-tagline {
+    display: none;
+  }
+
+  .header-tags {
+    display: none;
+  }
+
+  .auth-btn span:not(.icon) {
+    display: none;
+  }
+
+  .auth-btn {
+    padding: 7px 9px;
+  }
+}
+
+/* ===== فیکس هدر و منو در موبایل ===== */
+@media (max-width: 768px) {
+  /* هدر دیگه فیکس نباشه که nav روش نیفته */
+  header {
+    position: static;
+    top: auto;
+  }
+
+  /* nav هم معمولی بشه و از بالا فاصله‌گذاری نکنه */
+  nav {
+    position: static;
+    top: auto;
+    margin-top: 0;
+  }
+}
+/* =========================
+   NAV — نسخه موبایل
+   ========================= */
+@media (max-width: 768px) {
+  /* خود nav */
+  nav {
+    height: auto;
+    padding: 8px 0;
+    margin-top: 10px !important; /* فاصله از هدر */
+    position: relative; /* دیگه نچسبه بالا */
+    top: auto;
+  }
+
+  /* ظرف اصلی nav */
+  #nav-min {
+    padding: 0 12px;
+    justify-content: space-between;
+    gap: 6px;
+  }
+
+  /* لینک‌ها کوچیک‌تر */
+  .nav-left,
+  .nav-right {
+    gap: 6px;
+  }
+
+  .nav-link {
+    font-size: 11px;
+    padding: 3px 6px;
+  }
+
+  /* دکمه دسته‌بندی‌ها */
+  .nav-main-btn {
+    font-size: 11px;
+    padding: 6px 10px;
+  }
+
+  .nav-main-btn i {
+    font-size: 14px;
+  }
+
+  /* آیکون 🔥 کنار “پیشنهادات VIP” */
+  .nav-link.highlight i {
+    font-size: 12px;
+  }
+}
+
+/* موبایل خیلی کوچیک (آیفون SE / 320px) */
+@media (max-width: 360px) {
+  #nav-min {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  .nav-main-btn {
+    padding: 5px 8px;
+  }
+
+  .nav-link {
+    font-size: 10px;
+    padding: 3px 5px;
+  }
+}
+
+/* nav : end */
+
+/* body : start | ساختار بدنه، باکس‌های عمومی */
+#body {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+.box {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25px;
+}
+/* body : end */
+
+/* hot-box : start | اسلایدر پیشنهادات VIP */
+
+/* باکس کلی hot-box که توی .box می‌شینه */
+.hot-box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* رپر اسلایدر برای فیکس کردن عرض */
+.hot-slider-wrapper {
+  width: 1350px;
+  max-width: 100%;
+  padding: 0 16px;
+}
+
+/* باکس قرمز خود اسلایدر */
+.hot-slider-shell {
+  position: relative;
+  width: 100%;
+  padding: 18px 56px;
+  border-radius: 24px;
+  background: linear-gradient(90deg, #ff3d70, #d7003a);
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.18);
+  overflow: hidden;
+  direction: rtl;
+  min-height: 230px; /* اینو اضافه کن، اگر زیاد/کم بود تنظیمش کن */
+}
+
+/* پنجره حرکت کارت‌ها */
+.hot-slider-window {
+  overflow: hidden;
+}
+
+/* ریل کارت‌ها */
+.hot-slider-track {
+  display: flex;
+  align-items: stretch;
+  gap: 20px;
+  will-change: transform;
+  transition: transform 0.4s ease;
+  direction: ltr; /* اگر دوست داشتی، می‌تونی این رو اضافه کنی که ردیف همیشه لفت‌تو-رایت باشه */
+}
+
+/* کارت محصول */
+.hot-card {
+  flex: 0 0 calc((100% - (20px * 5)) / 6);
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+  transform: translateZ(0);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  min-height: 220px; /* 👈 این خط رو حتما اضافه کن */
+}
+
+/* جای عکس محصول – فعلا خالی */
+.hot-card-image {
+  width: 100%;
+  height: 150px; /* 👈 اضافه شد */
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.14);
+  margin-bottom: 8px;
+  overflow: hidden;
+}
+
+/* اگر img بذاری داخلش */
+.hot-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* بخش اطلاعات داخل کارت */
+.hot-card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* عنوان محصول */
+.hot-card-title {
+  font-family: "shabnam";
+  font-size: 13px;
+  font-weight: 600;
+  color: #222222; /* مشکی ملایم */
+  margin: 0;
+  text-align: right;
+}
+
+/* ردیف قیمت‌ها */
+.hot-card-price-row {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 6px;
+  justify-content: flex-start;
+  direction: rtl;
+}
+
+/* قیمت جدید */
+.hot-card-price-current {
+  font-family: "shabnam";
+  font-size: 13px;
+  font-weight: 700;
+  color: #222222; /* مشکی ملایم */
+}
+
+/* قیمت قدیم (خط‌خورده) */
+.hot-card-price-old {
+  font-family: "shabnam";
+  font-size: 11px;
+  color: #aaaaaa; /* طوسی روشن */
+  text-decoration: line-through;
+}
+
+/* درصد تخفیف */
+.hot-card-discount {
+  font-family: "shabnam";
+  font-size: 11px;
+  font-weight: 600;
+  color: #ff2347; /* قرمز برای تخفیف */
+}
+
+/* دکمه نمایش محصول */
+.hot-card-cta {
+  align-self: flex-start; /* سمت چپ کارت در RTL (ویژوال سمت چپ) */
+  margin-top: 6px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: none;
+  background: #f3f3f3; /* طوسی خیلی روشن */
+  color: #222222;
+  font-family: "shabnam";
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  outline: none;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+/* هاور روی دکمه – خیلی لطیف */
+.hot-card-cta:hover {
+  background: #e5e5e5;
+  transform: translateY(-1px);
+}
+
+/* فلش‌های اسلایدر */
+.hot-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: none;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.hot-arrow--prev {
+  right: 12px;
+}
+
+.hot-arrow--next {
+  left: 12px;
+}
+
+.hot-arrow i {
+  font-size: 14px;
+  color: #333333;
+}
+
+/* ریسپانسیو – موبایل */
+@media (max-width: 768px) {
+  .hot-slider-wrapper {
+    width: 100%;
+    padding: 0 12px;
+  }
+
+  .hot-slider-shell {
+    padding: 16px 40px;
+    border-radius: 18px;
+  }
+
+  /* فاصله بین کارت‌ها */
+  .hot-slider-track {
+    gap: 10px;
+  }
+
+  /* سه کارت در هر ردیف  (در موبایل) */
+  .hot-card {
+    flex: 0 0 calc(33.333% - 7px); /* فاصله‌ها رو هم حساب کردیم */
+    border-radius: 16px;
+    padding: 8px;
+  }
+
+  .hot-card-image {
+    height: 120px; /* برای ۳ کارت بهتره ارتفاع کمتر بشه */
+  }
+
+  .hot-card-title {
+    font-size: 11px;
+  }
+
+  .hot-card-price-current {
+    font-size: 11px;
+  }
+
+  .hot-card-cta {
+    font-size: 10px;
+    padding: 4px 10px;
+  }
+
+  .hot-arrow {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* hot-box : end */
+
+/* title : start | عنوان‌های بخش‌ها */
+.titel {
+  width: 1350px;
+  height: 50px;
+  margin: auto;
+  margin-top: 25px;
+  border-radius: 15px;
+  display: flex;
+  direction: rtl;
+  align-items: center;
+  color: #444444;
+  font-size: xx-large;
+  font-family: "shabnam";
+}
+.titel2 {
+  width: 30%;
+  height: 100%;
+  display: flex;
+  margin-right: auto;
+  direction: ltr;
+  align-items: center;
+}
+.titel2 p {
+  font-size: large;
+  font-family: "shabnam";
+  color: #444444;
+}
+.titel2 i {
+  font-size: large;
+  color: #444444;
+}
+.icon-titel {
+  width: 40px;
+  height: 40px;
+  margin-left: 10px;
+}
+.icon-titel2 {
+  width: 20px;
+  height: 40px;
+  margin-left: 10px;
+  align-items: center;
+}
+/* title : end */
+
+/* products-grid : start | کارت محصولات ما */
+
+/*---------------- محصولات ما - کارت شبیه نمونه ----------------*/
+
+#pdt-min1 {
+  /* گرید محصولات */
+  width: 1350px;
+  max-width: 100%;
+  margin: 0 auto 40px;
+  padding: 24px 8px 32px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+
+/* کارت اصلی */
+.p-card {
+  background: #ffffff;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+/* هاور کارت */
+.p-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.16);
+}
+
+/* تصویر بالا */
+.p-card-image {
+  position: relative;
+  width: 100%;
+  height: 230px;
+  background: #e5e7eb;
+  overflow: hidden;
+}
+
+.p-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* تگ سبز بالا */
+.p-card-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: #22c55e;
+  color: #ffffff;
+  font-size: 11px;
+  font-family: "shabnam";
+}
+
+/* بدنه پایین کارت */
+.p-card-body {
+  padding: 14px 18px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* عنوان محصول */
+.p-card-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: "shabnam";
+  color: #111827;
+}
+
+/* توضیح کوتاه */
+.p-card-desc {
+  margin: 0;
+  margin-top: 4px;
+  font-size: 12px;
+  line-height: 1.7;
+  color: #6b7280;
+}
+
+/* فوتر کارت: قیمت + دکمه */
+.p-card-footer {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* قیمت */
+.p-card-price {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  font-family: "shabnam";
+}
+
+.p-card-price-amount {
+  font-size: 15px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.p-card-price-currency {
+  font-size: 11px;
+  color: #9ca3af;
+}
+
+/* دکمه مشاهده و خرید */
+.p-card-btn {
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: none;
+  background: #f3f4f6;
+  color: #111827;
+  font-family: "shabnam";
+  font-size: 12px;
+  cursor: pointer;
+  transition: background 0.16s ease, transform 0.12s ease, box-shadow 0.16s ease;
+}
+
+.p-card-btn:hover {
+  background: #e5e7eb;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.15);
+  transform: translateY(-1px);
+}
+
+/*---------------- ریسپانسیو ----------------*/
+
+/* تبلت: ۳ تا در ردیف (اختیاری، برای وسط راه) */
+@media (max-width: 1024px) {
+  #pdt-min1 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    padding: 20px 12px 28px;
+  }
+
+  .p-card-image {
+    height: 210px;
+  }
+}
+
+/* موبایل: ۲ تا در ردیف */
+@media (max-width: 768px) {
+  #pdt-min1 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    padding: 16px 10px 24px;
+  }
+
+  .p-card {
+    border-radius: 22px;
+    box-shadow: 0 10px 28px rgba(15, 23, 42, 0.12);
+  }
+
+  .p-card-image {
+    height: 180px;
+  }
+
+  .p-card-title {
+    font-size: 14px;
+  }
+
+  .p-card-desc {
+    font-size: 11px;
+  }
+
+  .p-card-price-amount {
+    font-size: 13px;
+  }
+
+  .p-card-btn {
+    padding: 7px 14px;
+    font-size: 11px;
+  }
+}
+/* products-grid : end */
+
+/* bottom-nav : start | منوی شناور پایین صفحه */
+/* --- Premium Floating Bottom Nav --- */
+/* ---------- Bottom Navigation (شناور پایین) ---------- */
+
+.bottom-nav-wrapper {
+  position: fixed;
+  bottom: 22px; /* فاصله از پایین روی دسکتاپ */
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  pointer-events: none;
+  z-index: 999999; /* روی بقیه، ولی زیر منوها و مودال‌ها اگر خواستی بعداً تنظیم می‌کنیم */
+}
+
+#footer-nav {
+  pointer-events: auto;
+  width: 90%;
+  max-width: 520px;
+  background: #ffffff;
+  padding: 14px 22px;
+  border-radius: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 4px;
+
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.18), 0 5px 12px rgba(0, 0, 0, 0.1);
+
+  transition: 0.3s ease;
+}
+
+/* آیتم‌ها */
+.nav-item {
+  flex: 1;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-item i {
+  font-size: 20px;
+  color: #707070;
+  transition: 0.25s;
+}
+
+.nav-item p {
+  font-size: 11px;
+  margin: 0;
+  color: #7c7c7c;
+  transition: 0.25s;
+}
+
+/* Hover افکتی */
+.nav-item:hover i {
+  transform: translateY(-3px);
+  color: #ff2f7d;
+}
+.nav-item:hover p {
+  color: #ff2f7d;
+}
+
+/* فقط روی موبایل چسبیده پایین و فول‌ویدث بشه */
+@media (max-width: 768px) {
+  .bottom-nav-wrapper {
+    bottom: 0;
+  }
+
+  #footer-nav {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 0;
+    padding: 12px 18px;
+    margin: 0;
+    box-shadow: 0 -3px 18px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-item i {
+    font-size: 20px;
+  }
+
+  .nav-item p {
+    font-size: 10px;
+  }
+}
+
+/* موبایل خیلی کوچک */
+@media (max-width: 380px) {
+  #footer-nav {
+    padding: 10px 14px;
+  }
+  .nav-item i {
+    font-size: 18px;
+  }
+  .nav-item p {
+    font-size: 9px;
+  }
+}
+/* bottom-nav : end */
+
+/* main-footer : start | فوتر اصلی صفحه */
+/* ------- MAIN FOOTER ------- */
+
+#main-footer {
+  width: 100%;
+  background: #f8f9fa;
+  margin-top: 80px;
+  padding: 40px 20px 20px;
+  font-family: "shabnam";
+  direction: rtl;
+  color: #333;
+}
+
+.footer-container {
+  max-width: 1350px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.footer-col h4 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #111;
+}
+
+.footer-col a {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 13px;
+  text-decoration: none;
+  color: #555;
+  transition: 0.2s;
+}
+
+.footer-col a:hover {
+  color: #ff2f6c;
+  transform: translateX(-3px);
+}
+
+.footer-logo {
+  width: 80px;
+  height: 80px;
+  border-radius: 16px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.footer-about {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+.footer-social i {
+  font-size: 20px;
+  margin-left: 10px;
+  cursor: pointer;
+  color: #555;
+  transition: 0.2s;
+}
+
+.footer-social i:hover {
+  color: #ff2f6c;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 16px;
+  border-top: 1px solid #ddd;
+  font-size: 12px;
+  color: #666;
+}
+
+/* ریسپانسیو */
+@media (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .footer-social i {
+    margin: 0 8px;
+  }
+}
+/* main-footer : end */
