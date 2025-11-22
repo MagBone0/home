@@ -21,6 +21,7 @@ body {
 /* global : end */
 
 /* header : start | استایل هدر و نوار خبر بالا */
+
 header {
   width: 100%;
   max-width: 100%;
@@ -419,51 +420,110 @@ nav {
 
 /* ریسپانسیو هدر + ناوبری برای موبایل */
 @media (max-width: 900px) {
-  /* هدر در موبایل هم ردیفی بماند */
+  /* خود هدر: همیشه یه ردیف بمونه */
   #header-min {
     flex-direction: row;
     height: auto;
     padding: 8px 10px;
     align-items: center;
     justify-content: space-between;
-    gap: 10px;
+    gap: 8px;
   }
 
-  /* لوگو کوچک‌تر برای جا شدن در ردیف */
+  /* لوگو – فقط خود عکس، متن اضافه حذف بشه که جا بگیره */
   #header-logo {
+    flex: 0 0 auto;
     width: auto;
-    max-width: 120px;
+    max-width: none;
     padding: 0;
     justify-content: flex-start;
   }
 
   .main-logo {
-    width: 60px;
-    height: 60px;
+    width: 52px;
+    height: 52px;
   }
 
-  /* سرچ وسط */
+  /* شعار زیر لوگو تو موبایل حذف بشه */
+  .logo-tagline {
+    display: none;
+  }
+
+  /* سرچ وسط، کل فضای وسط رو بگیره */
   #header-srh {
+    flex: 1 1 auto;
     width: 100%;
     max-width: 100%;
     padding: 0;
   }
 
-  /* آیکون‌ها راست */
+  .sb-example-1 .searchTerm {
+    font-size: 14px;
+    padding: 10px 40px 10px 10px;
+  }
+
+  .search-placeholder {
+    right: 40px;
+    font-size: 13px;
+  }
+
+  .sb-example-1 .searchButton {
+    right: 10px;
+    font-size: 16px;
+  }
+
+  /* تگ‌های دسته‌بندی زیر سرچ تو موبایل حذف بشن که هدر شلوغ نشه */
+  .header-tags {
+    display: none;
+  }
+
+  /* آیکون‌ها سمت چپ هدر */
   #login-hearder {
+    flex: 0 0 auto;
     width: auto;
+    max-width: none;
     display: flex;
     align-items: center;
-    gap: 8px;
+    justify-content: flex-end;
+    gap: 6px;
     padding: 0;
   }
 
+  /* دکمه ورود: فقط آیکون، متنش حذف بشه تا جا بشه */
   .auth-btn span:not(.icon) {
-    display: none; /* مخفی کردن متن ورود | ثبت‌نام */
+    display: none;
   }
 
   .auth-btn {
-    padding: 6px 8px;
+    padding: 8px;
+    border-radius: 50%;
+  }
+
+  /* آیکون‌های سبد / علاقه‌مندی کمی کوچیک‌تر */
+  .header-icon-btn {
+    width: 34px;
+    height: 34px;
+  }
+}
+
+/* خیلی کوچک‌تر از 380px – یه کوچولو فشرده‌ترش کنیم */
+@media (max-width: 380px) {
+  #header-min {
+    padding: 6px 6px;
+    gap: 6px;
+  }
+
+  .main-logo {
+    width: 46px;
+    height: 46px;
+  }
+
+  .sb-example-1 .searchTerm {
+    font-size: 13px;
+  }
+
+  .search-placeholder {
+    font-size: 12px;
   }
 }
 
@@ -488,6 +548,86 @@ nav {
     padding: 7px 9px;
   }
 }
+
+/* ===== فیکس هدر و منو در موبایل ===== */
+@media (max-width: 768px) {
+  /* هدر دیگه فیکس نباشه که nav روش نیفته */
+  header {
+    position: static;
+    top: auto;
+  }
+
+  /* nav هم معمولی بشه و از بالا فاصله‌گذاری نکنه */
+  nav {
+    position: static;
+    top: auto;
+    margin-top: 0;
+  }
+}
+/* =========================
+   NAV — نسخه موبایل
+   ========================= */
+@media (max-width: 768px) {
+  /* خود nav */
+  nav {
+    height: auto;
+    padding: 8px 0;
+    margin-top: 10px !important; /* فاصله از هدر */
+    position: relative; /* دیگه نچسبه بالا */
+    top: auto;
+  }
+
+  /* ظرف اصلی nav */
+  #nav-min {
+    padding: 0 12px;
+    justify-content: space-between;
+    gap: 6px;
+  }
+
+  /* لینک‌ها کوچیک‌تر */
+  .nav-left,
+  .nav-right {
+    gap: 6px;
+  }
+
+  .nav-link {
+    font-size: 11px;
+    padding: 3px 6px;
+  }
+
+  /* دکمه دسته‌بندی‌ها */
+  .nav-main-btn {
+    font-size: 11px;
+    padding: 6px 10px;
+  }
+
+  .nav-main-btn i {
+    font-size: 14px;
+  }
+
+  /* آیکون 🔥 کنار “پیشنهادات VIP” */
+  .nav-link.highlight i {
+    font-size: 12px;
+  }
+}
+
+/* موبایل خیلی کوچیک (آیفون SE / 320px) */
+@media (max-width: 360px) {
+  #nav-min {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  .nav-main-btn {
+    padding: 5px 8px;
+  }
+
+  .nav-link {
+    font-size: 10px;
+    padding: 3px 5px;
+  }
+}
+
 /* nav : end */
 
 /* body : start | ساختار بدنه، باکس‌های عمومی */
